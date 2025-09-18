@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 
+class Base(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+
 class Recipe(models.Model):
     name = models.CharField(max_length=50, null=False)
     dificulty = models.IntegerField(null=False, default=1)
@@ -17,3 +22,22 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.description
+
+class Ticket(Base):
+    title = models.CharField(max_length= 30)
+    type = models.CharField(max_length=30)
+    sector = models.CharField(max_length=30)
+    area = models.CharField(max_length=30)
+    criticality = models.IntegerField()
+    criticalityColor = models.CharField(blank=True, max_length=30)
+    priority = models.IntegerField()
+    description = models.TextField()
+    closeDesc = models.TextField(blank=True)
+    finalStatus = models.BooleanField(default=False, blank=True)
+
+    class Meta:
+        verbose_name = "Chamado"
+        verbose_name_plural = "Chamados"
+
+    def __str__(self):
+        return self.title
