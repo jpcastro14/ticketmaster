@@ -22,11 +22,23 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.description
+    
+class Sector(models.Model):
+    name = models.CharField(max_length=10)
+    code = models.IntegerField(null=False)
+    description = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = "Setor"
+        verbose_name_plural = "Setores"
+
+    def __str__(self):
+        return self.name
 
 class Ticket(Base):
     title = models.CharField(max_length= 30)
     type = models.CharField(max_length=30)
-    sector = models.CharField(max_length=30)
+    sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
     area = models.CharField(max_length=30)
     criticality = models.IntegerField()
     criticalityColor = models.CharField(blank=True, max_length=30)
