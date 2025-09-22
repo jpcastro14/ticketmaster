@@ -9,4 +9,4 @@ class TicketAdmin(admin.ModelAdmin):
 
 @admin.register(Sector)
 class SectorAdmin(admin.ModelAdmin):
-    list_display=(['name'])
+    list_display=(['name','code'])

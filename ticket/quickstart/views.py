@@ -9,8 +9,16 @@ class RecipeAPIView(generics.ListCreateAPIView):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
-class TicketApiView(generics.ListCreateAPIView):
+class TicketAPIView(generics.ListCreateAPIView):
     queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
+
+class SectorAPIView(generics.ListAPIView):
+    queryset = Sector.objects.all()
+    serializer_class = SectorSerializer
+
+class ClosedTicketAPIView(generics.ListAPIView):
+    queryset = Ticket.objects.filter(active = False)
     serializer_class = TicketSerializer
 
 class SectorAPIView(generics.ListCreateAPIView):

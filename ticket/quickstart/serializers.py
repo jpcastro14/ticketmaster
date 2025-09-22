@@ -18,4 +18,10 @@ class SectorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sector
+        fields = '__all__'
+
+class SectorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Sector
         fields = "__all__"
