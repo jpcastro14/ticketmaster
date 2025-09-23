@@ -38,7 +38,7 @@ class Sector(models.Model):
 class Ticket(Base):
     title = models.CharField(max_length= 30)
     type = models.CharField(max_length=30)
-    sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
+    sector = models.ForeignKey(Sector,null=True, on_delete=models.CASCADE)
     area = models.CharField(max_length=30)
     criticality = models.IntegerField()
     criticalityColor = models.CharField(blank=True, max_length=30)
