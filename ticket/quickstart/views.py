@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, filters
 from .models import Recipe, Ticket, Sector
 from .serializers import RecipeSerializer, TicketSerializer, SectorSerializer
 
@@ -10,6 +10,13 @@ class RecipeAPIView(generics.ListCreateAPIView):
     serializer_class = RecipeSerializer
 
 class TicketAPIView(generics.ListCreateAPIView):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
+    filter_backends= [filters.OrderingFilter]
+    ordering_fields = "__all__"
+    ordering = ['-active']
+
+class TicketUpdateAPIView(generics.RetrieveUpdateAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
 

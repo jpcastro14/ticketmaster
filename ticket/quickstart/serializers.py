@@ -23,5 +23,5 @@ class TicketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ticket
-        fields = ('created_at', 'title','type','sector','area','criticality','priority','description')
+        fields = '__all__'
 
