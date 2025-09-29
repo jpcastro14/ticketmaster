@@ -14,7 +14,7 @@ class TicketAPIView(generics.ListCreateAPIView):
     serializer_class = TicketSerializer
     filter_backends= [filters.OrderingFilter]
     ordering_fields = "__all__"
-    ordering = ['-active']
+    ordering = ['-created_at']
 
 class TicketUpdateAPIView(generics.RetrieveUpdateAPIView):
     queryset = Ticket.objects.all()
