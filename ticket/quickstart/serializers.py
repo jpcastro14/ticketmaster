@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Recipe, Ticket, Sector
+from .models import Recipe, Ticket, Sector, Broker
 
 class RecipeSerializer(serializers.ModelSerializer):
 
@@ -25,3 +25,9 @@ class TicketSerializer(serializers.ModelSerializer):
         model = Ticket
         fields = '__all__'
 
+
+class BrokerSerializer(serializers.ModelSerializer):
+
+    class Meta: 
+        model = Broker
+        fields = '__all__'

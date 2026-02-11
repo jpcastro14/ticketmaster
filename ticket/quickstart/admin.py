@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ticket, Sector
+from .models import Ticket, Sector, Broker, Sales
 
 # Register your models here.
 
@@ -10,3 +10,7 @@ class TicketAdmin(admin.ModelAdmin):
 @admin.register(Sector)
 class SectorAdmin(admin.ModelAdmin):
     list_display=(['name','code'])
+
+@admin.register(Broker)
+class BrokerAdmin(admin.ModelAdmin):
+    list_display=(['title'])

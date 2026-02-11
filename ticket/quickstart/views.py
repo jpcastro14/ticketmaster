@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, filters
-from .models import Recipe, Ticket, Sector
-from .serializers import RecipeSerializer, TicketSerializer, SectorSerializer
+from .models import Recipe, Ticket, Sector, Broker
+from .serializers import RecipeSerializer, TicketSerializer, SectorSerializer, BrokerSerializer
 
 # Create your views here.
 
@@ -35,3 +35,12 @@ class SectorAPIView(generics.ListCreateAPIView):
 class SingleTicketApiView(generics.RetrieveUpdateAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+
+class BrokerAPIView(generics.ListAPIView):
+    queryset = Broker.objects.all()
+    serializer_class = BrokerSerializer
+
+class BrokerNewSaleAPIView(generics.RetrieveUpdateAPIView):
+    queryset = Broker.objects.all()
+    serializer_class = BrokerSerializer
+    

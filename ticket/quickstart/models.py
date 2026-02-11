@@ -53,3 +53,24 @@ class Ticket(Base):
 
     def __str__(self):
         return self.title
+    
+class Sales(models.Model):
+    title = models.CharField(max_length=50)
+    saleValue = models.BigIntegerField(default=0,null=False,blank=False)
+    saleDate = models.DateField(blank=False, null=False, auto_now_add=False)
+
+class Broker(models.Model):
+    title = models.CharField(max_length=50)
+    team = models.CharField(max_length=10)
+    photo = models.CharField(max_length=100)
+    creci = models.CharField(max_length=7)
+    email = models.CharField(max_length=50)
+    phoneNumber = models.CharField(max_length=12)
+    sales = models.JSONField(default=dict, blank=True)
+
+    class Meta:
+        verbose_name = "Corretores"
+
+    def __str__(self):
+        return self.title
+
